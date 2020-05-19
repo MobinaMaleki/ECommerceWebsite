@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = "پروفایل من";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class='panel_style1'>
+    <div class='container'>
+        <div class='inner clearfix'>
+            @{
+                if (ViewBag.Msg != null)
+                {
+                    string Msg = ViewBag.Msg.ToString();
+                    string OK = ViewBag.OK.ToString();
+                    if (OK == "OK")
+                    {
+                        <div class='alarm_style1'>
+                            <div class='success_alarm box'>
+                                           
+                                <div class='alarm_icon'><img src='~/assets/front/_images/icon/checked.png' alt=''></div>
+                                <div class='alarm_text'> @Msg</div>
+                            </div>
+                        </div><!--close .alarm_style1-->
+                    }
+                    else
+                    { <div class='alarm_style1'>
+                            <div class='success_alarm box'>
+                                <div class='alarm_icon'><img src='~/assets/front/_images/icon/checked.png' alt=''></div>
+                                <div class='alarm_text'> @Msg</div>
+                            </div>
+                        </div><!--close .alarm_style1-->
+                    }
+                }
+            }
+            @await Html.PartialAsync("P_HeaderProfile")  <!--clsoe .dashboard-->
+
+
+
+
+            @{
+                Eshop.Repository.RepoProfile _repProfile = new Eshop.Repository.RepoProfile();
+
+
+                if (!_repProfile.IsAddressInDb(User.Identity.Name))
+                {
+                    await Html.RenderPartialAsync("P_MyProfile");
+
+                }
+                else if (!_repProfile.IsConfirmMobile(User.Identity.Name))
+                {
+                    await Html.RenderPartialAsync("GetPhoneNumberForSms.cshtml");
+
+                }
+                else
+                {
+                    await Html.RenderPartialAsync("P_Edite_MyProfile");
+
+                }
+
+
+            }
+
+
+            @section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+            }
+        </div>
+    </div>
+</div>

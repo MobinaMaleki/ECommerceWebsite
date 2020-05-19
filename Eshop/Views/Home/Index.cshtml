@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "خانه";
+
+}
+
+    <main class='main_page'>
+     
+        @await Html.PartialAsync("PartialRandom")
+        @await Html.PartialAsync("PartialNewest")
+        @await Html.PartialAsync("PartialIntroduce")
+        @await Html.PartialAsync("PartialPopular")
+        @await Html.PartialAsync("PartialLogo")
+    </main>
+
+
+
+
+@section Scripts {
+    
+}

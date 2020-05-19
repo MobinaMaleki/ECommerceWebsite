@@ -1,0 +1,38 @@
+﻿<div class='dashboard'>
+    <ul class='step none_list_style'>
+        <li class='item top_part clearfix'>
+            <div class='right_part'>
+                <a asp-action="Logout" asp-controller="Account">
+                    <div class='logout'>
+                        <span class='icon'><i class='i-power-1'></i></span>
+                        <span class='text'>خروج</span>
+                    </div>
+                </a>
+                <div class='user_pic'></div>
+                <div class='user_name'> @User.Identity.Name</div>
+            </div><!--close .right_part-->
+            <div class='left_part'>
+                <ul class='step2 none_list_style clearfix'>
+                    <li class='item2 have_tooltip'>
+                        <a asp-action="Shopingcart" asp-controller="Profile" title='' class='link2'><i class='i-shopping-cart'></i></a>
+                        <div class='tooltip_style1'><span>سبد خرید من</span></div>
+                    </li>
+                    <li class='item2 alert have_tooltip'>
+                        <a asp-action="Message" asp-controller="Profile" title='' class='link2'><i class='i-mail-2'></i></a>
+                        <div class='tooltip_style1'><span>پیام های من</span></div>
+                    </li>
+                </ul>
+            </div>
+        </li><!--clsoe .item-->
+        <li class='item bottom_part'>
+            <div class='panel_menu_btn'><i class='i-menu'></i></div>
+            <ul class='step2 none_list_style clearfix'>
+                <li class='item2 '><a asp-action="Index" asp-controller="Profile" class='link2'>اطلاعات پستی <!--<i class='i-marker'></i>--></a></li>
+                <li class='item2 '><a asp-action="Message" asp-controller="Profile" class='link2 '>پیام های من <!--<i class='i-chat'></i>--></a></li>
+                <li class='item2 '><a asp-action="Comment" asp-controller="Profile" class='link2 '>نظرات ثبت شده من <!--<i class='i-comments'></i>--></a></li>
+                <li class='item2 '><a href="/Identity/Account/Manage/ChangePassword" class='link2 '>تغییر کلمه عبور <!--<i class='i-key'></i>--></a></li>
+                <li class='item2 '><a asp-action="OrdersList" asp-controller="Profile" class='link2 '>لیست سفارشات <!--<i class='i-label'></i>--></a></li>
+            </ul> 
+        </li><!--clsoe .item-->
+    </ul><!--clsoe .step-->
+</div>

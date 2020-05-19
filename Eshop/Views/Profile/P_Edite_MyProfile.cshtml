@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@*@model AdressViewModel*@
+@{
+    var username = User.Identity.Name;
+    Eshop.Repository.RepoProfile adrep = new Eshop.Repository.RepoProfile();
+    var q = adrep.GetUserByUserName(username);
+
+}
+
+<div class='panel_content'>
+    <!--<div class='title_style7'>
+        <div class='title'>پروفایل من</div>
+    </div>-->
+
+    <div class="table1">
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="2" width="220">
+                        اطلاعات تماس منزل به نام
+                        <span>@q.NameFamily</span>
+                        <span>@q.Email</span>
+                    </td>
+                    <td colspan="2" width="220">@q.Address</td>
+
+                </tr>
+                <tr>
+                    <td>@q.Province</td>
+                    <td>@q.City</td>
+                    <td>@q.PostalCode</td>
+                    <td>@q.IrCode</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class='form_style2'>
+        <form asp-controller="Profile" asp-action="EditMyProfile" method="POST">
+            <input type="hidden" name="Username" value="@q.UserName" />
+            @*@{
+                if (ViewBag.Msg != null)
+                {
+                    string OK = ViewBag.OK.ToString();
+                    if (OK == "OK")
+                    {
+                        string Msg = ViewBag.Msg.ToString();*@
+
+            @*<div class='alarm_style1'>
+                    <div class='success_alarm box'>
+                        <div class='alarm_icon'><img src='assets/front/_images/icon/checked.png' alt=''></div>
+                        <div class='alarm_text'>@Msg</div>
+                    </div>
+                </div>*@
+
+            @*<div class="alarm_style2">
+                                <div class="success_alarm box">
+                                    <div class="alarm_icon"><img src="/assets/front/_images/icon/checked.png" alt=""></div>
+                                    <div class="alarm_text">@Msg</div>
+                                    <div class="close_icon"><i class="i-cancel"></i></div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }*@
+            <ul class='step none_list_style clearfix'>
+
+                <li class='item half'>
+                    <div class='icon'><i class='i-user'></i></div>
+                    <input type='text' placeholder='کشور' name='Country' value="@q.Country">
+                    <span class='focus_bg'></span>
+                    <span class="text-danger"></span>
+                </li>
+                <li class='item half'>
+                    <div class='icon'><i class='i-mail-2'></i></div>
+                    <input type='text' placeholder='شهر' name='City' value="@q.City">
+                    <span class='focus_bg'></span>
+                    <span class="text-danger"></span>
+                </li>
+                <li class='item half'>
+                    <div class='icon'><i class='i-telephone'></i></div>
+                    <input type='text' placeholder='استان' name='Province' value="@q.Province">
+                    <span class='focus_bg'></span>
+                    <span class="text-danger"></span>
+                </li>
+
+                <li class='item half'>
+                    <div class='icon'><i class='i-mobile'></i></div>
+                    <input type='text' placeholder='کدپستی' name='PostalCode' value="@q.PostalCode">
+                    <span class='focus_bg'></span>
+                    <span class="text-danger"></span>
+                </li>
+
+                <li class='item textarea'>
+                    <div class='icon'><i class='i-mobile'></i></div>
+                    <input  type='text' multiple placeholder='آدرس' name='Address' value="@q.Address">
+                    <span class='focus_bg'></span>
+                    <span  class="text-danger"></span>
+                </li>
+                <li class="item submit">
+                    <button type="submit">ویرایش</button>
+                </li>
+            </ul>
+        </form>
+    </div><!--close .form_style2-->
+</div><!--clsoe .panel_content-->

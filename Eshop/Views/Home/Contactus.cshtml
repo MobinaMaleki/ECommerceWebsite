@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Conact";
+}
+
+<div class='page_title'>
+    <div class='container'>
+
+        <div class='inner'>
+            <div class='title'>تماس با ما</div>
+            <div id='breadcromb'>
+                <ul class='list clearfix none_list_style'>
+                    <li><a href='' title=''><i class='i-home-house-streamline'></i></a></li>
+                    <li><a href='تماس-با-ما/contact-us' title=''>تماس با ما</a></li>
+                </ul><!--close .list-->
+            </div><!--close #breadcrumb-->
+            <div class='search_part'>
+                <div class='search_btn'>
+                    <i class='open_icon i-search'></i>
+                    <i class='close_icon i-cancel'></i>
+                </div>
+                <div class='search_input'>
+                    <form method="POST" action="search/query">
+                        <input type="hidden" name="_token" value="KubHdUwJNAhD3EiMO7ancz5OGMtQTMwekpJlr53n">
+                        <input name="query" type='text' placeholder='جستجو کنید'>
+                        <button><i class='i-search'></i></button>
+                    </form>
+                </div><!--close .search_input-->
+            </div><!--close .search_part-->
+        </div><!--close .inner-->
+    </div><!--close .container-->
+</div><!--close .page_title-->
+<div class='contact_part1'>
+    <div class='top_part'>
+        <div class='container'>
+            <div class='inner clearfix'>
+                <div class='left_part'>
+                    <div class='title_style7'>
+                        <div class='title'>راه های ارتباطی</div>
+                        <div class='sub_title'>
+                            از طریق راه های ارتباطی زیر یا ارسال تیکت میتوانید با ما در ارتباط باشید.
+                        </div>
+                    </div><!--close .title_style7-->
+                    <div class='info_style1'>
+                        <ul class='step none_list_style clearfix'>
+                            <li class='item'>
+                                <div class='icon'><i class='i-telephone'></i></div>
+                                <div class='content'>0000</div>
+                            </li>
+                            <li class='item'>
+                                <div class='icon'><i class='i-mail'></i></div>
+                                <div class='content'>info@kiket.ir</div>
+                            </li>
+                        </ul><!--close .step-->
+                    </div><!--close .info_style1-->
+                </div><!--close .left_part-->
+                <div class='right_part'>
+                    <div class='form_style2'>
+                        <form id='contact_frm' action="message" method="POST">
+                            <input type="hidden" name="_token" value="KubHdUwJNAhD3EiMO7ancz5OGMtQTMwekpJlr53n">
+                            <ul class='step none_list_style'>
+                                <li class='item'>
+                                    <div class='icon'><i class='i-user'></i></div>
+                                    <input type='text' placeholder='نام و نام خانوادگی' name='name'>
+                                    <span class='focus_bg'></span>
+                                </li>
+                                <li class='item'>
+                                    <div class='icon'><i class='i-mail-2'></i></div>
+                                    <input type='text' placeholder='ایمیل' name='email'>
+                                    <span class='focus_bg'></span>
+                                </li>
+                                <li class='item textarea'>
+                                    <div class='icon'><i class='i-chat'></i></div>
+                                    <textarea placeholder='متن پیام شما...' name='message'></textarea>
+                                    <span class='focus_bg'></span>
+                                </li>
+                                <li class='item submit'>
+                                    <button>ارسال پیام</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div><!--close .form_style2-->
+                </div><!--close .right_part-->
+            </div><!--close .inner-->
+        </div><!--close .container-->
+    </div><!--close .top_part-->
+    <div class='bottom_part'>
+        <div class='container'>
+            <div class='inner'>
+                <div class='icon'><div class='hand_range'><div class='hand'></div></div></div>
+                <div class='track_order'>
+                    <div class='text'>
+                        برای پیگیری شفارش خود به صفحه زیر مراجعه کنید.
+                    </div>
+                    <a href='user/order' title='' class='btn_style2'><span>پیگیری سفارش</span></a>
+                </div>
+            </div><!--close .inner-->
+        </div><!--close .container-->
+    </div><!--close .bottom_part-->
+</div><!--close .contact_part-->
+<!--<div class='contact_part2'>
+    <div id='map'></div>
+</div>-->

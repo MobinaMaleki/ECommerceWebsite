@@ -1,0 +1,83 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = " ورود";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+
+<div class='container'>
+    <div class='inner'>
+        <div class='title'></div>
+
+        <!--close .search_part-->
+    </div><!--close .inner-->
+</div><!--close .container-->
+
+<div class='register_part1'>
+    <div class='container'>
+        <div class='inner clearfix'>
+            <div class='login_part fright'>
+                <div class='part_inner'>
+                    <div class='title_style7'>
+                        <div class='title'>ورود به پنل کاربری</div>
+                    </div>
+
+                    <div class='form_style2'>
+                        <form id='account' method="post">
+                            <input type="hidden" name="_token" value="dsIvqII2PJDqUl2f2CzMupXHJ2TfV59ozigxe4jM">
+
+                            <ul class='step none_list_style clearfix'>
+                                <li class='item'>
+                                    <div class='icon'><i class='i-mail'></i></div>
+                                    <input asp-for="Input.Email" type='text' placeholder='ایمیل یا نام کاربری'>
+                                    <span class='focus_bg'></span>
+                                    <span class='important'><i class='i-star'></i></span>
+                                </li>
+                                <li class='item'>
+                                    <div class='icon'><i class='i-key'></i></div>
+                                    <input asp-for="Input.Password" type='password' placeholder='کلمه عبور'>
+                                    <span class='focus_bg'></span>
+                                    <span class='important'><i class='i-star'></i></span>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label asp-for="Input.RememberMe">
+                                            <input asp-for="Input.RememberMe" />
+                                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                        </label>
+
+                                    </div>
+                                </li>
+                                <li>
+                                    
+                                        <p><a href="/Identity/Account/ForgotPassword">پسوردم را فراموش کرده ام</a></p>
+                                    
+
+
+
+                                </li>
+                                <li class='item submit'>
+                                    <input type="submit" class="submit" value="ورود" />
+                                </li>
+
+
+                            </ul>
+
+
+                        </form>
+
+
+                    </div><!-- close .part_inner -->
+                </div>
+            </div><!-- close .inner -->
+        </div><!-- close .continer -->
+    </div><!-- close .register_part1 -->
+
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

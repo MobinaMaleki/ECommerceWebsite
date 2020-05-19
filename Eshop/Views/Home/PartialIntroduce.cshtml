@@ -1,0 +1,121 @@
+﻿@{ 
+    Eshop.Repository.RepoProduct repoProduct = new Eshop.Repository.RepoProduct();
+    var lstp = repoProduct.SelectAll();
+}
+<section class='home_part3'>
+    <div class='container'>
+        <div class='inner'>
+            <div class='btn'>
+                <div class='owl_btns' data-target='.slide2'>
+                    <span class='arrow prev fleft'>
+                        قبلی<i class='i-left-open icon1'></i><i class='i-left-open icon2'></i>
+                    </span>
+                    <span class='arrow next fright'>
+                        بعدی<i class='i-right-open icon1'></i><i class='i-right-open icon2'></i>
+                    </span>
+                </div>
+            </div>
+            <ul class='step slide2 owl-carousel none_list_style'>
+                @foreach (var item in lstp)
+                {
+                    string DefultPicName = "defulat.jpg";
+                    if (item.Tbl_Gallery != null)
+                    {
+                        foreach (var gallery in item.Tbl_Gallery)
+                        {
+                            if (gallery.Defult == true)
+                            {
+                                DefultPicName = gallery.PictureName;
+                            }
+                        }
+                    }
+
+
+                    <li class='item clearfix'>
+                        <div class='section_part left_part fleft'>
+                            <div class='pic_part'
+                                 style='background-image:url(/uploads/@DefultPicName);'>
+
+                                <ul class='step2 none_list_style'>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                    <li class='star'></li>
+                                </ul>
+                            </div><!--close .pic_part-->
+                        </div><!--close .section_part-->
+                        <div class='section_part right_part fright'>
+                            <a href='/هود-وایز-WH201/products/1'
+                               title='' class='title_style2'>@item.Title</a>
+                            <p class='text ellipsis'>
+                               @item.Decrption
+
+                             
+                            </p><!--close .text-->
+                            <div class='product_information'>
+                                <div class='title_style3'><span class='title'>S</span></div>
+                                <ul class='step2 none_list_style'>
+                                    <li class='item2'>
+                                        <span class='title'>
+                                            شرکت سازنده
+                                            :
+                                        </span>
+                                        <span class='content'>وایز</span>
+                                    </li>
+                                    <li class='item2'>
+                                        <span class='title'>
+                                            رنگ
+                                            :
+                                        </span>
+                                        <span class='content'>مشکی</span>
+                                    </li>
+                                    <li class='item2'>
+                                        <span class='title'>
+                                            گارانتی
+                                            :
+                                        </span>
+                                        <span class='content'>2 ساله وایز سرویس</span>
+                                    </li>
+                                </ul>
+                            </div><!--close .product_information-->
+                            <div class='link_part'>
+                                <a href='/cart/add' onclick="event.preventDefault();
+                                            document.getElementById('cart-pack-1').submit();" title=''
+                                   class='btn_style1 add_cart'>
+                                    <i class='i-add-shop'></i><span>افزودن به سبد خرید</span>
+                                </a>
+                                <a href='/هود-وایز-WH201/products/1'
+                                   title='' class='btn_style1 see_more'><i class='i-link'></i><span>جزییات بیشتر کالا</span></a>
+                            </div>
+                            <form method="POST" action="/cart/add" id="cart-pack-1"
+                                  style="display: none;">
+                                <input type="hidden" name="product_id" value="1">
+                                <input type="hidden" name="_token" value="KubHdUwJNAhD3EiMO7ancz5OGMtQTMwekpJlr53n">
+                            </form>
+                        </div><!--close .right_part-->
+                    </li>
+                }
+           
+            </ul><!--close .step-->
+        </div><!--close .inner-->
+    </div><!--close .container-->
+</section>

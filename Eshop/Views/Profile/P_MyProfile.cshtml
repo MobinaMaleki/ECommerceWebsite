@@ -1,0 +1,127 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    
+
+
+<div class='panel_style1'>
+    <div class='container'>
+        <div class='inner clearfix'>
+            <div class='dashboard'>
+                <ul class='step none_list_style'>
+                    <li class='item top_part clearfix'>
+                        <div class='right_part'>
+                            <a href="logout">
+                                <div class='logout'>
+                                    <span class='icon'><i class='i-power-1'></i></span>
+                                    <span class='text'>خروج</span>
+                                </div>
+                            </a>
+                            <div class='user_pic'></div>
+                            <div class='user_name'>صابر</div>
+                        </div><!--close .right_part-->
+                        <div class='left_part'>
+                            <ul class='step2 none_list_style clearfix'>
+                                <li class='item2 have_tooltip'>
+                                    <a href='' title='' class='link2'><i class='i-shopping-cart'></i></a>
+                                    <div class='tooltip_style1'><span>سبد خرید من</span></div>
+                                </li>
+                                <li class='item2 alert have_tooltip'>
+                                    <a href='user/message' title='' class='link2'><i class='i-mail-2'></i></a>
+                                    <div class='tooltip_style1'><span>پیام های من</span></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li><!--clsoe .item-->
+                    <li class='item bottom_part'>
+                        <div class='panel_menu_btn'><i class='i-menu'></i></div>
+                        <ul class='step2 none_list_style clearfix'>
+                            <li class='item2     active
+'>
+                                <a href='user/profile' class='link2     active'>پروفایل من<!--<i class='i-user'></i>--></a>
+                            </li>
+                            <li class='item2 '><a href='user/address' class='link2 '>اطلاعات پستی <!--<i class='i-marker'></i>--></a></li>
+                            <li class='item2 '><a href='user/message' class='link2 '>پیام های من <!--<i class='i-chat'></i>--></a></li>
+                            <li class='item2 '><a href='user/comment' class='link2 '>نظرات ثبت شده من <!--<i class='i-comments'></i>--></a></li>
+                            <li class='item2 '><a href='user/edit' class='link2 '>تغییر کلمه عبور <!--<i class='i-key'></i>--></a></li>
+                            <li class='item2 '><a href='user/order' class='link2 '>لیست سفارشات <!--<i class='i-label'></i>--></a></li>
+                        </ul>
+                    </li><!--clsoe .item-->
+                </ul><!--clsoe .step-->
+            </div><!--clsoe .dashboard-->
+            <div class='panel_content'>
+                <!--<div class='title_style7'>
+                    <div class='title'>پروفایل من</div>
+                </div>-->
+                <div class='form_style2'>
+                    <form action=" /profile/UpdateProfile" method="post">
+                        <input type="hidden" name="_token" value="KubHdUwJNAhD3EiMO7ancz5OGMtQTMwekpJlr53n">
+                        <div class='alarm_style1'>
+                            <div class='success_alarm box'>
+                                <div class='alarm_icon'><img src='assets/front/_images/icon/checked.png' alt=''></div>
+                                <div class='alarm_text'>مشخصات شما با موفقیت ثبت شد.</div>
+                            </div>
+                        </div>
+                        <ul class='step none_list_style clearfix'>
+                            <li class='item half'>
+                                <div class='icon'><i class='i-user'></i></div>
+                                <input type='text' placeholder='نام و نام خانوادگی' name='name' value="@ViewBag.userlogin.UserName">
+                                <span class='focus_bg'></span>
+                            </li>
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mail-2'></i></div>
+                                <input type='text' placeholder='ایمیل' name='email' value="@ViewBag.userlogin.Email">
+                                <span class='focus_bg'></span>
+                            </li>
+
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mobile'></i></div>
+                                <input type='text' placeholder='شماره موبایل' name='PhoneNumber' value="@ViewBag.userlogin.PhoneNumber">
+                                <span class='focus_bg'></span>
+                            </li>
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mobile'></i></div>
+                                <input type='text' placeholder=' ادرس' name='Address' value="@ViewBag.userlogin.Address">
+                                <span class='focus_bg'></span>
+
+                            </li>
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mobile'></i></div>
+                                <input type='text' placeholder='کشور' name='Country' value="@ViewBag.userlogin.Country">
+                                <span class='focus_bg'></span>
+                            </li>
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mobile'></i></div>
+                                <input type='text' placeholder='استان' name='Province' value="@ViewBag.userlogin.Province">
+                                <span class='focus_bg'></span>
+                            </li>
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mobile'></i></div>
+                                <input type='text' placeholder='شهر' name='City' value="@ViewBag.userlogin.City">
+                                <span class='focus_bg'></span>
+                            </li>
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mobile'></i></div>
+                                <input type='text' placeholder='کدپستی' name='PostalCode' value="@ViewBag.userlogin.PostalCode">
+                                <span class='focus_bg'></span>
+                            </li>
+
+                            <li class='item half'>
+                                <div class='icon'><i class='i-mobile'></i></div>
+                                <input type='text' placeholder='کد ملی' name='IrCode' value="@ViewBag.userlogin.IrCode">
+                                <span class='focus_bg'></span>
+                            </li>
+
+
+
+                            <li class='item submit'>
+                                <button class="btn-danger" type="submit">ویرایش مشخصات</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div><!--close .form_style2-->
+            </div><!--clsoe .panel_content-->
+        </div><!--close .inner-->
+    </div><!--close .container-->
+</div><!--close .panel_style1-->

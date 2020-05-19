@@ -1,0 +1,118 @@
+﻿@model Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging.Message
+@{
+    ViewData["Title"] = "Message";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Eshop.Repository.RepoMesssage msg = new Eshop.Repository.RepoMesssage();
+    var q = msg.GetMessageSend(User.Identity.Name);
+}
+
+
+
+<div class='panel_style1'>
+    <div class='container'>
+        <div class='inner clearfix'>
+            @{
+                if (ViewBag.Msg != null)
+                {
+                    string Msg = ViewBag.Msg.ToString();
+                    string OK = ViewBag.OK.ToString();
+                    if (OK == "OK")
+                    {
+                        <div class='alarm_style1'>
+                            <div class='success_alarm box'>
+                                <div class='alarm_icon'><img src='~/assets/front/_images/icon/checked.png' alt=''></div>
+                                <div class='alarm_text'> @Msg</div>
+                            </div>
+                        </div><!--close .alarm_style1-->
+                    }
+                    else
+                    { <div class='alarm_style1'>
+                            <div class='success_alarm box'>
+                                <div class='alarm_icon'><img src='~/assets/front/_images/icon/checked.png' alt=''></div>
+                                <div class='alarm_text'> @Msg</div>
+                            </div>
+                        </div><!--close .alarm_style1-->
+                    }
+                }
+            }
+            @await Html.PartialAsync("P_HeaderProfile")  <!--clsoe .dashboard-->
+            <div class="panel_content">
+                <div class="title_style7">
+                    <span class="title">پیام به مدیریت سایت</span>
+                </div>
+                <div class="form_style2">
+                    <form style="width:60%; margin:0 auto;" asp-controller="Profile" asp-action="SendMsgtoAdmin" method="POST">
+                        <input type="hidden" name="UserIdSend" value="@User.Identity.Name" />
+                        <ul class="step none_list_style clearfix">
+                            <li class="item textarea">
+                                <div class="icon"><i class="i-check"></i></div>
+                                <textarea placeholder=".... پیام" maxlength="240" name="Text" type="text"></textarea>
+                                <span class="focus_bg"></span>
+                                <span class="important"><i class="i-star"></i></span>
+                                <span class="text-danger"></span>
+                            </li>
+
+                            <li class="item submit">
+                                <button type="submit">ارسال پیام</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div><!--close .form_style2-->
+                <div class="massage_style1">
+                    <div class="top_part">
+                        <ul class="step clearfix none_list_style">
+                            <li class="item">
+                                <a href="/profile/messagereply" title="" class="link">پیام های دریافتی</a>
+
+                            </li>
+                            <li class="item active">
+                                <a href="/profile/message" title="" class="link">پیام های ارسالی</a>
+                                @{
+                                    if (q.Count() > 0)
+                                    {
+                                        <span class="count">
+                                            @q.Count()
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="count">
+                                            0
+                                        </span>
+
+                                    }
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom_part">
+                        <div class="table2">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        
+                                        <th class="subject"> پیام</th>
+                                        <th class="date">تاریخ ارسال</th>
+                                        <th class="status">وضعیت</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                               @Html.Raw(ViewBag.msglist)
+                                   
+                                             
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pagination_style1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--close .inner-->
+    </div><!--close .container-->
+</div><!--close .panel_style1-->
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

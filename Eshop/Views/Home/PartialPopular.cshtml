@@ -1,0 +1,82 @@
+﻿@{
+    Eshop.Repository.RepoProduct repoProduct = new Eshop.Repository.RepoProduct();
+    var lstp = repoProduct.SelectAll();
+}
+<section class='home_part4'>
+    <div class='title_style4'>
+        <div class='title'>پرفروش ترین ها</div>
+    </div><!--close .title_style1-->
+    <div class='container'>
+        <div class='inner'>
+            <div class='box_style3'>
+                <ul class='step slide3 owl-carousel none_list_style'>
+                    @{
+                        foreach (var item in lstp)
+                        {
+                            string defultpicname = "defult.jpg";
+
+                            if (item.Tbl_Gallery != null)
+                            {
+
+                                foreach (var gallery in item.Tbl_Gallery)
+                                {
+                                    if (gallery.Defult == true)
+                                    {
+                                        defultpicname = gallery.PictureName;
+                                    }
+                                }
+                            }
+                            <li class='item'>
+                                <div class='top_part'>
+                                    <a href='/هود-وایز-WH201/products/1'
+                                       title='' class='pic'
+                                       style='background-image:url(/uploads/@defultpicname);'></a>
+                                </div><!--close .top_part-->
+                                <div class='bottom_part'>
+                                    <div class='content_part'>
+                                        <a href='/هود-وایز-WH201/products/1'
+                                           title='' class='name ellipsis'>@item.Title</a>
+                                        <div class='price_part'>
+                                            <span class='org_price'>@item.Price</span>
+                                        </div>
+                                    </div><!--close .content_part-->
+                                    <ul class='link_part clearfix none_list_style'>
+                                        <li class='item2 add_cart'>
+                                            <a href='/هود-وایز-WH201/products/1' title='' class='link2'>
+                                                <i class='i-add-shop'></i>
+                                                <span>افزودن به سبد خرید</span>
+                                            </a>
+                                        </li>
+                                        <li class='item2 see_more'>
+                                            <a href='/هود-وایز-WH201/products/1'
+                                               title='' class='link2'>
+                                                <i class='i-link'></i>
+                                                <span>بیشتر</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div><!--close .bottom_part-->
+                            </li>
+
+
+                        }
+
+
+
+
+                    }
+
+                </ul><!--close .step-->
+            </div><!--close .box_style2-->
+            <div class='btn'>
+                <div class='owl_btns' data-target='.slide3'>
+                    <span class='arrow right prev'><i class='i-left-open'></i></span>
+                    <span class='arrow left next'><i class='i-right-open'></i></span>
+                </div>
+            </div>
+        </div><!--close .inner-->
+    </div><!--close .container-->
+</section>
+
+
+

@@ -1,0 +1,86 @@
+﻿
+@{ 
+    Eshop.Repository.RepoProduct repoProduct = new Eshop.Repository.RepoProduct();
+    var lstp = repoProduct.SelectAll();
+}
+
+<section class='home_part2'>
+    <div class='container'>
+        <div class='inner'>
+            <div class='title_style1'>
+                <div class='title'>جدیدترین ها</div>
+                <div class='btn'>
+                    <div class='owl_btns' data-target='.slide1'>
+                        <span class='arrow right prev'><i class='i-left-open'></i></span>
+                        <span class='arrow left next'><i class='i-right-open'></i></span>
+                    </div>
+                </div>
+            </div><!--close .title_style1-->
+            <div class='box_style2'>
+                <ul class='step slide1 owl-carousel none_list_style'>
+                    @{
+                        foreach (var item in lstp)
+                        {
+                            string defultpicname = "defult.jpg";
+
+                            if (item.Tbl_Gallery != null)
+                            {
+
+                                foreach (var gallery in item.Tbl_Gallery)
+                                {
+                                    if (gallery.Defult == true)
+                                    {
+                                        defultpicname = gallery.PictureName;
+                                    }
+                                }
+                            }
+                            <li class='item'>
+                                <div class='top_part'>
+                                    <ul class='link_part none_list_style'>
+                                        <li class='item2 add_cart have_tooltip'>
+                                            <a href='/cart/add' onclick="event.preventDefault();
+                                                    document.getElementById('cart-product-1').submit();"
+                                               title='' class='link2'>
+                                                <i class='i-add-shop'></i>
+                                                <div class='tooltip_style1'><span>افزودن به سبد خرید</span></div>
+                                            </a>
+                                        </li>
+                                        <form method="POST" action="/cart/add"
+                                              id="cart-product-1" style="display: none;">
+                                            <input type="hidden" name="product_id" value="1">
+                                            <input type="hidden" name="_token" value="KubHdUwJNAhD3EiMO7ancz5OGMtQTMwekpJlr53n">
+                                        </form>
+                                        <li class='item2 box_btn have_tooltip'>
+                                            <a href="/هود-وایز-WH201/products/1">
+                                                <i class='i-link'></i>
+                                                <div class='tooltip_style1'><span>جزییات بیشتر</span></div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class='pic'
+                                         style='background-image:url(/uploads/@defultpicname);'></div>
+                                    <div class='price_part'>
+                                        <span class='off_price'>@item.DiscountedPrice</span>
+                                        <span class='org_price'>@item.Price</span>
+                                    </div>
+                                </div>
+                                <div class='bottom_part'>
+                                    <a href='/هود-وایز-WH201/products/1'
+                                       title='' class='name ellipsis'>@item.Title</a>
+                                </div>
+                            </li>
+
+                        }
+
+                    }
+
+
+
+                </ul><!--close .step-->
+            </div><!--close .box_style2-->
+        </div><!--close .inner-->
+    </div><!--close .container-->
+</section>
+
+
+

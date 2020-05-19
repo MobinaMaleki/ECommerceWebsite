@@ -1,0 +1,39 @@
+﻿<div class='panel_content'>
+    <!--<div class='title_style7'>
+        <div class='title'>پروفایل من</div>
+    </div>-->
+
+    <div class='form_style2'>
+        <form asp-controller="Profile" asp-action="CheckConfirmCode" method="post">
+            @*@{
+                if (ViewBag.Msg != null)
+                {
+                    string OK = ViewBag.OK.ToString();
+                    if (OK == "OK")
+                    {
+                        string Msg = ViewBag.Msg.ToString();
+
+                        <div class='alarm_style1'>
+                            <div class='success_alarm box'>
+                                <div class='alarm_icon'><img src='assets/front/_images/icon/checked.png' alt=''></div>
+                                <div class='alarm_text'>@Msg</div>
+                            </div>
+                        </div>
+                    }
+                }
+            }*@
+            <ul class='step none_list_style clearfix'>
+                <li class='item half'>
+                    <div class='icon'><i class='i-mobile'></i></div>
+                    <input type='text' placeholder=' کد تایید' name='Code' value="" required title="کد تایید ارسال شده به شماره همراه را وارد نمایید">
+                    <span class='focus_bg'></span>
+                </li>
+
+                <li class="item submit">
+                    <button type="submit">ارسال کد تایید</button>
+                </li>
+            </ul>
+
+        </form>
+    </div><!--close .form_style2-->
+</div><!--clsoe .panel_content-->

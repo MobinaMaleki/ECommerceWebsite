@@ -1,0 +1,56 @@
+﻿
+
+@{
+    Eshop.Repository.RepoProduct _repoProduct = new Eshop.Repository.RepoProduct();
+    var ProductLst = _repoProduct.SelectAll();
+
+}
+
+
+<section class='home_part1'>
+    <div class='container'>
+        <div class='inner'>
+            <ul class='box_style1 clearfix none_list_style'>
+
+
+                @{
+
+                    foreach (var item in ProductLst)
+                    {
+                        string DefultPicName = "defulat.jpg";
+                        if (item.Tbl_Gallery != null)
+                        {
+                            foreach (var gallery in item.Tbl_Gallery)
+                            {
+                                if (gallery.Defult == true)
+                                {
+                                    DefultPicName = gallery.PictureName;
+                                }
+                            }
+                        }
+
+
+                        <li class='item'>
+                            <div class='pic_part'>
+                                <div class='pic'
+                                     style='background-image: url(/uploads/@DefultPicName );'></div>
+                            </div>
+                            <a href='/Product/DetailProduct?id=@item.ID' title=''
+                               class='name ellipsis'>
+                               @item.Title
+                            </a>
+                            <a href='/Product/DetailProduct?id=@item.ID' title=''
+                              
+                                        
+                               class='link'><i class='i-plus'></i></a>
+                        </li>
+
+
+                    }
+                }
+
+              
+            </ul>
+        </div>
+    </div>
+</section>

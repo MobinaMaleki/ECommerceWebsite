@@ -1,0 +1,76 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class='register_part1'>
+        <div class='container'>
+            <div class='inner clearfix'>
+
+                <div class="col-md-5"
+
+                    <div class='signin_part fleft'>
+                        <div class='part_inner'>
+                            <div class='title_style7'>
+                                <div class='title'>عضویت در کی کِت</div>
+                            </div>
+                            <div class='form_style2'>
+
+                                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                    <input type="hidden" name="_token" value="dsIvqII2PJDqUl2f2CzMupXHJ2TfV59ozigxe4jM">
+                                    <div class='alarm_style1' style='display:none;'>
+                                        <div class='success_alarm box'>
+                                            <div class='alarm_icon'><img src='_images/icon/checked.png' alt=''></div>
+                                            <div class='alarm_text'>مشخصات شما با موفقیت ثبت شد.</div>
+                                        </div>
+                                        <div class='error_alarm box' style='display:none;'>
+                                            <div class='alarm_icon'><img src='_images/icon/cancel.png' alt=''></div>
+                                            <div class='alarm_text'>مشخصات شما ثبت نشد!</div>
+                                        </div>
+                                    </div><!--close .alarm_style1-->
+                                    <ul class='step none_list_style clearfix'>
+
+                                        <li class='item'>
+                                            <div class='icon'><i class='i-mail'></i></div>
+                                            <input placeholder='ایمیل' asp-for="Input.Email">
+                                            <span class='focus_bg'></span>
+                                            <span class='important'><i class='i-star'></i></span>
+                                        </li>
+
+                                        <li class='item'>
+                                            <div class='icon'><i class='i-key'></i></div>
+                                            <input placeholder='کلمه عبور' asp-for="Input.Password">
+                                            <span class='focus_bg'></span>
+                                            <span class='important'><i class='i-star'></i></span>
+                                        </li>
+                                        <li class='item'>
+                                            <div class='icon'><i class='i-key'></i></div>
+                                            <input placeholder='تکرار کلمه عبور' asp-for="Input.ConfirmPassword">
+                                            <span class='focus_bg'></span>
+                                            <span class='important'><i class='i-star'></i></span>
+                                        </li>
+                                        <li class='item submit'>
+                                            <button type="submit" class="btn btn-primary">عضویت</button>
+
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div><!-- close .part_inner -->
+                    </div><!-- close .signin_part -->
+                </div>
+
+            </div><!-- close .inner -->
+        </div><!-- close .continer -->
+    </div><!-- close .register_part1 -->
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

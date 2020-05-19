@@ -1,0 +1,23 @@
+﻿@{ 
+    Eshop.Repository.RepoProduct repoProduct = new Eshop.Repository.RepoProduct();
+  var lstp= repoProduct.SelectAll();
+
+}
+
+<section class="home_part5">
+    <div class="container">
+        <div class="inner">
+            <div class="box_style7">
+                <ul class="step none_list_style">
+                    @foreach (var item in lstp)
+                    {
+                        <li class="item">
+                            <a href="#" title="" class="link"><img src="~/uploads/10-best-shopping-store-logo.gif" alt=""></a>
+                        </li>
+                    }
+
+                   
+        </div>
+    </div>
+</section>
+
